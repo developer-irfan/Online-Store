@@ -1,25 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from "./components/Navbar/Navbar";
+import { Routes, Route, Navigate } from "react-router-dom";
+import AboutUs from "./Pages/AboutUs";
+import ProductPage from "./Pages/ProductPage";
+import ContactUs from "./Pages/ContactUs";
+import Footer from "./components/Footer/Footer";
+import HomePage from "./Pages/HomePage";
+import Signup from "./components/Signup/Signup";
+import Login from "./components/Login/Login";
 
-function App() {
+//
+import { useSelector } from "react-redux";
+import ProductDetails from "./components/Products/ProductDetails";
+import CartItems from "./components/Cart/CartItems";
+
+const App = () => {
+  //state
+  const hasLogin = useSelector((state) => state.loginReducer);
+
+  //
+
+  //logined routes
+
+  //return
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <Routes>
+        {hasLogin && (
+          <>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/products" element={<ProductPage />} />
+            <Route path="/products/:id" element={<ProductDetails />} />
+            <Route path="/contact" element={<ContactUs />} />
+            <Route path="/complete-order" element={<CartItems />} />
+          </>
+        )}
+
+        {!hasLogin && (
+          <>
+            <Route path="*" element={<Navigate replace to="/" />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/contact" element={<ContactUs />} />
+            <Route path="/create-account" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+          </>
+        )}
+      </Routes>
+      <Footer />
+    </>
   );
-}
+};
 
 export default App;
