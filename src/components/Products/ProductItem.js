@@ -2,6 +2,8 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { addItemToCart } from "../../redux/Actions/Action";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function ProductItem(props) {
   //dispatch
@@ -10,12 +12,34 @@ function ProductItem(props) {
   //
   const addToCart = () => {
     dispatch(addItemToCart({ ...props.fullItem, amount: 1 }));
+    toast("🛒 Item Added, Checkout Cart", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   };
 
   //return
   return (
     <>
       <div className="col-lg-4 col-md-6 mb-4 py-4">
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
         <img src={props.img} className="img-fluid" alt="" />
 
         <p className="mb-1 font-weight-bold black-text">{props.title}</p>
