@@ -1,6 +1,8 @@
 import {
   ADDTOCART,
+  ADMINLOGIN,
   DELETEITEMFROMCART,
+  ITEMDETAILS,
   LOGIN,
   LOGINFAILEDMODEL,
   LOGINFALIEDMODELCLOSED,
@@ -21,6 +23,12 @@ export const userLogin = (email, password) => {
 export const userLogout = () => {
   return {
     type: LOGOUT,
+  };
+};
+
+export const adminLogin = () => {
+  return {
+    type: ADMINLOGIN,
   };
 };
 
@@ -48,5 +56,12 @@ export const deleteItemfromCart = (id) => {
   return {
     type: DELETEITEMFROMCART,
     id,
+  };
+};
+
+export const singleItem = (item, param) => {
+  return {
+    type: ITEMDETAILS,
+    item,
   };
 };

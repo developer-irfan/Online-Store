@@ -23,7 +23,6 @@ const Cart = () => {
               <h5 className="mt-3">
                 <strong>{item.title}</strong>
               </h5>
-              <p className="text-muted">{item.id}</p>
             </td>
             <td></td>
             <td></td>

@@ -1,13 +1,17 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { NavLink } from "react-router-dom";
-import { addItemToCart } from "../../redux/Actions/Action";
+// import { NavLink } from "react-router-dom";
+import { addItemToCart, singleItem } from "../../redux/Actions/Action";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 function ProductItem(props) {
   //dispatch
   const dispatch = useDispatch();
+
+  //navigate
+  const navigate = useNavigate();
 
   //
   const addToCart = () => {
@@ -22,6 +26,12 @@ function ProductItem(props) {
       progress: undefined,
       theme: "light",
     });
+  };
+
+  //handleItemDetails
+  const handleItemDetails = () => {
+    dispatch(singleItem(props.fullItem));
+    navigate(`/products/${props.fullItem.id}`);
   };
 
   //return
@@ -68,13 +78,13 @@ function ProductItem(props) {
         >
           Add to Cart
         </button>
-        <NavLink
-          to={`/products/${props.id}`}
+        <button
           type="button"
+          onClick={handleItemDetails}
           className="btn btn-outline-black btn-rounded btn-sm px-3 waves-effect"
         >
           Details
-        </NavLink>
+        </button>
       </div>
     </>
   );

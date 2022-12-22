@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { loginFailed, userLogin } from "../../redux/Actions/Action";
+import { adminLogin, loginFailed, userLogin } from "../../redux/Actions/Action";
 import { useForm } from "react-hook-form";
 import "./Signup.css";
 import { useNavigate } from "react-router-dom";
@@ -33,6 +33,10 @@ const LoginForm = () => {
     if (email === "irfan@gmail.com" && password === "irfan") {
       dispatch(userLogin(email, password));
       navigate("/products");
+    }
+    if (email === "admin@gmail.com" && password === "admin") {
+      dispatch(adminLogin());
+      navigate("/available-products");
     }
     dispatch(loginFailed());
     setEmail("");

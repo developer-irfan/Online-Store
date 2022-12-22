@@ -15,6 +15,9 @@ const NavbarItems = () => {
   //
   const hasLogin = useSelector((state) => state.loginReducer);
 
+  //has admin login
+  const hasAdminLogin = useSelector((state) => state.AdminLoginReducer);
+
   //
   const cartResult = useSelector((state) => state.AddToCartReducer);
 
@@ -27,20 +30,25 @@ const NavbarItems = () => {
   return (
     <>
       <ul className="navbar-nav mr-auto">
-        <li className="nav-item">
-          <NavLink exact="true" to="/" className="nav-link pl-xl-5 pl-lg-2">
-            Home
-          </NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink
-            exact="true"
-            to="/about"
-            className="nav-link pl-xl-4 pl-lg-4"
-          >
-            About
-          </NavLink>
-        </li>
+        {!hasAdminLogin && (
+          <>
+            <li className="nav-item">
+              <NavLink exact="true" to="/" className="nav-link pl-xl-5 pl-lg-2">
+                Home
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact="true"
+                to="/about"
+                className="nav-link pl-xl-4 pl-lg-4"
+              >
+                About
+              </NavLink>
+            </li>
+          </>
+        )}
+
         {hasLogin && (
           <li className="nav-item">
             <NavLink
@@ -53,18 +61,43 @@ const NavbarItems = () => {
           </li>
         )}
 
-        <li className="nav-item">
-          <NavLink
-            exact="true"
-            to="/contact"
-            className="nav-link pl-xl-4 pl-lg-4"
-          >
-            Contact
-          </NavLink>
-        </li>
+        {hasAdminLogin && (
+          <>
+            <li className="nav-item">
+              <NavLink
+                exact="true"
+                to="/available-products"
+                className="nav-link pl-xl-4 pl-lg-4"
+              >
+                Uploaded Products
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact="true"
+                to="/add-product"
+                className="nav-link  pl-xl-4 pl-lg-4"
+              >
+                Add Product
+              </NavLink>
+            </li>
+          </>
+        )}
+
+        {!hasAdminLogin && (
+          <li className="nav-item">
+            <NavLink
+              exact="true"
+              to="/contact"
+              className="nav-link pl-xl-4 pl-lg-4"
+            >
+              Contact
+            </NavLink>
+          </li>
+        )}
       </ul>
       <ul className="navbar-nav ml-auto nav-flex-icons">
-        {!hasLogin && (
+        {!hasLogin && !hasAdminLogin && (
           <>
             <li className="nav-item">
               <NavLink
@@ -84,6 +117,20 @@ const NavbarItems = () => {
                 className="nav-link  pl-xl-4 pl-lg-4"
               >
                 Login
+              </NavLink>
+            </li>
+          </>
+        )}
+
+        {hasAdminLogin && (
+          <>
+            <li className="nav-item" onClick={handleLogout}>
+              <NavLink
+                exact="true"
+                to="/"
+                className="nav-link  pl-xl-4 pl-lg-4"
+              >
+                Logout
               </NavLink>
             </li>
           </>

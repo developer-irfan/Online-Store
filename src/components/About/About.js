@@ -1,11 +1,12 @@
 import React from "react";
+import "./About.css";
 import { NavLink } from "react-router-dom";
 import AboutPic from "../../assets/about.png";
 import AboutSocailLinks from "./AboutSocailLinks";
 
-function About() {
+const About = () => {
   return (
-    <div>
+    <div className="about">
       <div className="container my-5 py-5">
         <section className="px-md-5 mx-md-5 text-center dark-grey-text">
           <div className="row">
@@ -39,6 +40,6 @@ function About() {
       </div>
     </div>
   );
-}
+};
 
 export default About;

@@ -7,9 +7,9 @@ const Contact = () => {
       <div className="contact_div">
         <div className="view py-3">
           <section className="text-center px-md-5 mx-md-5 dark-grey-text">
-            <h3 className="font-weight-bold mb-4  pt-5">Contact Us</h3>
+            <h3 className="font-weight-bold mb-4  pt-3">Contact Us</h3>
 
-            <p className="text-center w-responsive mx-auto mb-5 ">
+            <p className="text-center w-responsive mx-auto mb-3 ">
               Send your subject and query or any other related stuffs to us. We
               can contact as soon as possible.
             </p>

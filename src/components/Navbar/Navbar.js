@@ -12,11 +12,11 @@ const Navbar = () => {
   //return statemtent
   return (
     <div>
-      <div className="">
+      <div>
         <nav
           className="mb-0 navbar navbar-expand-lg navbar-dark primary-color  blue-text pt-2 pb-2"
           id="navmain"
-          style={{ color: "black" }}
+          style={{ minHeight: "70px", color: "black" }}
         >
           <div className="container">
             <NavLink to="/" className="navbar-brand" href="#">

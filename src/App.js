@@ -10,14 +10,17 @@ import Login from "./components/Login/Login";
 
 //
 import { useSelector } from "react-redux";
-import ProductDetails from "./components/Products/ProductDetails";
+import ProductDetails from "./components/Products/ProductsDetails/ProductDetails";
 import CartItems from "./components/Cart/CartItems";
+import UploadedProducts from "./components/Admin/Uploaded Products/UploadedProducts";
+import AddProduct from "./components/Admin/AddNewProduct/AddProduct";
 
 const App = () => {
   //state
   const hasLogin = useSelector((state) => state.loginReducer);
 
-  //
+  //admin state
+  const hasAdminLogin = useSelector((state) => state.AdminLoginReducer);
 
   //logined routes
 
@@ -38,6 +41,24 @@ const App = () => {
         )}
 
         {!hasLogin && (
+          <>
+            <Route path="*" element={<Navigate replace to="/" />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/contact" element={<ContactUs />} />
+            <Route path="/create-account" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+          </>
+        )}
+
+        {hasAdminLogin && (
+          <>
+            <Route path="/available-products" element={<UploadedProducts />} />
+            <Route path="/add-product" element={<AddProduct />} />
+          </>
+        )}
+
+        {!hasAdminLogin && (
           <>
             <Route path="*" element={<Navigate replace to="/" />} />
             <Route path="/" element={<HomePage />} />
