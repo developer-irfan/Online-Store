@@ -9,6 +9,7 @@ import {
   LOGINFALIEDMODELCLOSED,
   LOGOUT,
   NEWPRODUCT,
+  ORDERSUBMITTED,
 } from "../Constant/ActionTypes";
 
 //actions
@@ -82,5 +83,11 @@ export const newProduct = (productTitle, productPrice, productImage) => {
       price: productPrice,
       img: productImage,
     },
+  };
+};
+
+export const orderSubmitted = () => {
+  return {
+    type: ORDERSUBMITTED,
   };
 };

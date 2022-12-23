@@ -1,4 +1,8 @@
-import { ADDTOCART, DELETEITEMFROMCART } from "../Constant/ActionTypes";
+import {
+  ADDTOCART,
+  DELETEITEMFROMCART,
+  ORDERSUBMITTED,
+} from "../Constant/ActionTypes";
 
 const initialCartState = {
   items: [],
@@ -57,7 +61,11 @@ const AddToCartReducer = (state = initialCartState, action) => {
         items: getUpdatedItems,
         totalAmount: updatedTotalAmount,
       };
-
+    case ORDERSUBMITTED:
+      return {
+        items: [],
+        totalAmount: 0,
+      };
     default:
       return state;
   }

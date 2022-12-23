@@ -8,3 +8,4 @@ export const ITEMDETAILS = "ITEMDETAILS";
 export const ADMINLOGIN = "ADMINLOGIN";
 export const ALLPRODUCTS = "ALLPRODUCTS";
 export const NEWPRODUCT = "NEWPRODUCT";
+export const ORDERSUBMITTED = "ORDERSUBMITTED";
