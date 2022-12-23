@@ -57,7 +57,7 @@ const CartItems = () => {
                     <td colspan="3" className="text-right">
                       <button
                         type="button"
-                        className="btn btn-primary btn-rounded"
+                        className="btn btn-md btn-primary btn-rounded"
                       >
                         Submit Order
                         <i className="fas fa-angle-right right"></i>

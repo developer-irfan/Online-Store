@@ -4,6 +4,7 @@ import LoginFailedModalReducer from "./LoginFailedModelReducer";
 import AddToCartReducer from "./AddToCartReducer";
 import ItemDetailReducer from "./ItemDetailReducer";
 import AdminLoginReducer from "./AdminLoginReducer";
+import AllProductsReducer from "./AllProductsReducer";
 
 const mainReducer = combineReducers({
   loginReducer,
@@ -11,6 +12,7 @@ const mainReducer = combineReducers({
   AddToCartReducer,
   ItemDetailReducer,
   AdminLoginReducer,
+  AllProductsReducer,
 });
 
 export default mainReducer;

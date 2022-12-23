@@ -1,12 +1,14 @@
 import {
   ADDTOCART,
   ADMINLOGIN,
+  ALLPRODUCTS,
   DELETEITEMFROMCART,
   ITEMDETAILS,
   LOGIN,
   LOGINFAILEDMODEL,
   LOGINFALIEDMODELCLOSED,
   LOGOUT,
+  NEWPRODUCT,
 } from "../Constant/ActionTypes";
 
 //actions
@@ -52,7 +54,6 @@ export const addItemToCart = (data) => {
 };
 
 export const deleteItemfromCart = (id) => {
-  console.log(id);
   return {
     type: DELETEITEMFROMCART,
     id,
@@ -63,5 +64,23 @@ export const singleItem = (item, param) => {
   return {
     type: ITEMDETAILS,
     item,
+  };
+};
+
+export const allProductsItems = (products) => {
+  return {
+    type: ALLPRODUCTS,
+    products,
+  };
+};
+
+export const newProduct = (productTitle, productPrice, productImage) => {
+  return {
+    type: NEWPRODUCT,
+    newProductItem: {
+      title: productTitle,
+      price: productPrice,
+      img: productImage,
+    },
   };
 };
