@@ -45,7 +45,7 @@ const LoginForm = () => {
 
   //return here
   return (
-    <div className="col-6">
+    <div className="col-10 col-lg-6">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="md-form md-outline form-md">
           <input

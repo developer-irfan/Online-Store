@@ -58,7 +58,7 @@ const NewProductForm = () => {
   //return
   return (
     <>
-      <div className="col-6">
+      <div className="col-10 col-lg-6">
         <ToastContainer
           position="top-center"
           autoClose={5000}

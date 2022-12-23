@@ -4,7 +4,7 @@ import "./Signup.css";
 const SignupForm = () => {
   //return here
   return (
-    <div className="col-6">
+    <div className="col-10 col-lg-6">
       <form action="">
         <div className="md-form md-outline form-md">
           <input
