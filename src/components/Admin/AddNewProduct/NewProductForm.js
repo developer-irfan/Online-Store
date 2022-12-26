@@ -36,7 +36,7 @@ const NewProductForm = () => {
     //
     dispatch(newProduct(title, price, image));
 
-    toast("Product Added to Product List!!", {
+    toast("Product Added to Product List!", {
       position: "top-center",
       autoClose: 5000,
       hideProgressBar: false,
